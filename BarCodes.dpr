@@ -2,7 +2,8 @@ program BarCodes;
 
 uses
   Vcl.Forms,
-  GUI in 'GUI.pas' {Form2};
+  GUI in 'GUI.pas' {Form2},
+  BarCoder in 'BarCoder.pas';
 
 {$R *.res}
 

@@ -4,8 +4,8 @@ object Form2: TForm2
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072' '#1096#1090#1088#1080#1093'-'#1082#1086#1076#1086#1074
-  ClientHeight = 113
-  ClientWidth = 594
+  ClientHeight = 165
+  ClientWidth = 611
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -70,16 +70,23 @@ object Form2: TForm2
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 94
-    Width = 594
+    Top = 146
+    Width = 611
     Height = 19
     Panels = <
       item
         Width = 50
       end>
-    ExplicitLeft = 328
-    ExplicitTop = 96
-    ExplicitWidth = 0
+    ExplicitTop = 94
+    ExplicitWidth = 594
+  end
+  object Button4: TButton
+    Left = 8
+    Top = 101
+    Width = 105
+    Height = 25
+    Action = Stop
+    TabOrder = 4
   end
   object ActionList1: TActionList
     Left = 248
@@ -99,6 +106,11 @@ object Form2: TForm2
       Enabled = False
       OnExecute = ProcessExecute
       OnUpdate = ProcessUpdate
+    end
+    object Stop: TAction
+      Caption = #1054#1090#1084#1077#1085#1080#1090#1100
+      Enabled = False
+      OnExecute = StopExecute
     end
   end
   object OpenDialog1: TOpenDialog
