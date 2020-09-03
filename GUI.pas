@@ -11,14 +11,10 @@ type
   TForm2 = class(TForm)
     ActionList1: TActionList;
     SetInput: TAction;
-    SetOutput: TAction;
     Process: TAction;
     Button1: TButton;
-    Button2: TButton;
     InFile: TLabel;
-    OutFile: TLabel;
     OpenDialog1: TOpenDialog;
-    SaveDialog1: TSaveDialog;
     ErrMsg: TLabel;
     Button3: TButton;
     StatusBar1: TStatusBar;
@@ -26,7 +22,6 @@ type
     Button4: TButton;
     procedure FormCreate(Sender: TObject);
     procedure SetInputExecute(Sender: TObject);
-    procedure SetOutputExecute(Sender: TObject);
     procedure ProcessUpdate(Sender: TObject);
     procedure ProcessExecute(Sender: TObject);
     procedure StopExecute(Sender: TObject);
@@ -47,7 +42,6 @@ uses
 
 const
   NoInFile = 'Входной файл не выбран';
-  NoOutFile = 'Выходной файл не выбран';
 
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -57,7 +51,6 @@ end;
 procedure TForm2.FormCreate(Sender: TObject);
 begin
   InFile.Caption:=NoInFile;
-  OutFile.Caption:=NoOutFile;
 end;
 
 procedure TForm2.ProcessExecute(Sender: TObject);
@@ -85,14 +78,6 @@ begin
  if OpenDialog1.Execute then
   begin
     InFile.Caption:=OpenDialog1.FileName;
-  end;
-end;
-
-procedure TForm2.SetOutputExecute(Sender: TObject);
-begin
-  if SaveDialog1.Execute then
-  begin
-    OutFile.Caption:=SaveDialog1.FileName;
   end;
 end;
 
