@@ -63,7 +63,6 @@ object Form2: TForm2
       item
         Width = 50
       end>
-    ExplicitTop = 146
   end
   object Button4: TButton
     Left = 8

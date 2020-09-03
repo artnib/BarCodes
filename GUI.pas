@@ -35,9 +35,6 @@ var
 
 implementation
 
-uses
-  BarCode, Diagnostics;
-
 {$R *.dfm}
 
 const
@@ -54,8 +51,6 @@ begin
 end;
 
 procedure TForm2.ProcessExecute(Sender: TObject);
-var
-  sw: TStopWatch;
 begin
   Process.Enabled:=False;
   StatusBar1.Panels[0].Text:='Обработка...';
