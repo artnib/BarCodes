@@ -13,6 +13,7 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -77,8 +78,6 @@ object Form2: TForm2
       item
         Width = 50
       end>
-    ExplicitTop = 94
-    ExplicitWidth = 594
   end
   object Button4: TButton
     Left = 8

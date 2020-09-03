@@ -30,6 +30,7 @@ type
     procedure ProcessUpdate(Sender: TObject);
     procedure ProcessExecute(Sender: TObject);
     procedure StopExecute(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     bc: TBarCoder;
   end;
@@ -47,6 +48,11 @@ uses
 const
   NoInFile = 'Входной файл не выбран';
   NoOutFile = 'Выходной файл не выбран';
+
+procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  StopExecute(self);
+end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
