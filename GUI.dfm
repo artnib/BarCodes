@@ -26,17 +26,15 @@ object Form2: TForm2
   end
   object ErrMsg: TLabel
     Left = 119
-    Top = 75
-    Width = 33
+    Top = 45
+    Width = 3
     Height = 13
-    Caption = 'ErrMsg'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    Visible = False
   end
   object Button1: TButton
     Left = 8

@@ -72,8 +72,8 @@ begin
     headers:=SplitString(AllHeaders, DELIM);
     for col:=Low(headers) to High(headers) do
       if InSheet.Cells.Item[FirstRow, col + 1].Text <> headers[col] then
-        FError:=Format('Неверная структура файла. Не найден столбец %d "%s"',
-          [col + 1, headers[col]]);
+        raise Exception.Create(Format('Неверная структура файла. Не найден столбец %d "%s"',
+          [col + 1, headers[col]]));
     InRow:=FirstRow + 1;
     Outrow:=FirstRow + 1;
     codes:=TDictionary<string, TList<string>>.Create;
@@ -142,7 +142,13 @@ begin
   except
     on e: Exception do
     begin
-      FError:=e.Message;
+      if e is EOleSysError then
+        FError:='Ошибка запуска Excel. Возможно, программа Excel не установлена.'
+      else
+        FError:=e.Message;
+      if not VarIsEmpty(ExcelApp) then
+        ExcelApp.Quit;
+      Synchronize(UpdateGUI);
     end;
   end;
 end;
@@ -154,7 +160,7 @@ begin
   if Length(FError) > 0 then
   begin
     Form2.ErrMsg.Caption:=FError;
-    Form2.ErrMsg.Visible:=True;
+    Form2.StatusBar1.Panels[0].Text:='';
   end;
 end;
 

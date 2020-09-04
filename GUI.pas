@@ -55,16 +55,17 @@ begin
   Process.Enabled:=False;
   StatusBar1.Panels[0].Text:='Обработка...';
   Stop.Enabled:=True;
+  ErrMsg.Caption:='';
   bc:=TBarCoder.Create(InFile.Caption);
 end;
 
 procedure TForm2.ProcessUpdate(Sender: TObject);
 begin
-  if (InFile.Caption = NoInFile) {or (OutFile.Caption = NoOutFile)} then
+  if InFile.Caption = NoInFile then
     Exit;
   if Stop.Enabled then
     Exit;
-  ErrMsg.Visible:=False;
+//  ErrMsg.Visible:=False;
   Process.Enabled:=True;
 end;
 
